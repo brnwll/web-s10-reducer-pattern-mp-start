@@ -59,7 +59,11 @@ const reducer = (state, action) => {
         }),
       };
     case SET_HIGHLIGHTED_QUOTE:
-      return { ...state, highlightedQuote: action.payload };
+      return {
+        ...state,
+        highlightedQuote:
+          state.highlightedQuote === action.payload ? null : action.payload,
+      };
     case TOGGLE_VISIBILITY:
       return { ...state, displayAllQuotes: !state.displayAllQuotes };
     default:
